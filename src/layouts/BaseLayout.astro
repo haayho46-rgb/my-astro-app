@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'ひまわりブログ' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__container">
+        <div class="site-header__top">
+          <div class="site-logo">
+            <div class="site-logo__icon">🌻</div>
+            <h1 class="site-header__title">ひまわりブログ</h1>
+          </div>
+          <p class="site-header__tagline">〜 心地よい毎日のひとかけら 〜</p>
+        </div>
+
+        <nav class="site-header__nav">
+          <ul class="nav-list">
+            <li><a href="/">TOP</a></li>
+            <li><a href="/category/interior">インテリア</a></li>
+            <li><a href="/category/storage">収納・片付け</a></li>
+            <li><a href="/category/handmade">手作り</a></li>
+            <li><a href="/category/life">くらし</a></li>
+            <li><a href="/category/travel">旅行</a></li>
+            <li><a href="/rakuten-room">楽天ROOM</a></li>
+            <li><a href="/profile">プロフィール</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="site-body">
+      <slot />
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__logo">🌻 ひまわりブログ</p>
+        <p class="site-footer__tagline">〜 心地よい毎日のひとかけら 〜</p>
+        <p class="site-footer__copy">&copy; {new Date().getFullYear()} ひまわりブログ.</p>
+      </div>
+    </footer>
+  </body>
+</html>

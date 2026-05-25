@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<BaseLayout title="ひまわりブログ">
+  <div class="page-grid">
+
+    <main class="main-content">
+      <p class="section-label">新着記事</p>
+      <ul class="post-list">
+        {posts.map((post) => {
+          const slug = post.id.replace(/\.md$/, '');
+          const dateStr = post.data.publishDate.toLocaleDateString('ja-JP', {
+            year: 'numeric', month: 'long', day: 'numeric',
+          });
+          return (
+            <li class="post-card">
+              <a href={`/blog/${slug}`} class="post-card__image-wrap">
+                {post.data.heroImage ? (
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="post-card__image"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="post-card__image post-card__image--placeholder">
+                    🌻
+                  </div>
+                )}
+              </a>
+              <div class="post-card__body">
+                {post.data.category && (
+                  <span class="post-card__category">{post.data.category}</span>
+                )}
+                <h2 class="post-card__title">
+                  <a href={`/blog/${slug}`}>{post.data.title}</a>
+                </h2>
+                <p class="post-card__desc">{post.data.description}</p>
+                <div class="post-card__footer">
+                  <time class="post-card__date">{dateStr}</time>
+                  <a href={`/blog/${slug}`} class="post-card__readmore">続きを読む →</a>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </main>
+
+    <Sidebar />
+
+  </div>
+</BaseLayout>

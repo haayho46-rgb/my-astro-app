@@ -1,0 +1,130 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+const popularPosts = posts.slice(0, 5);
+const categories = [
+  { name: 'インテリア', slug: 'interior', emoji: '🛋️' },
+  { name: '収納・片付け', slug: 'storage', emoji: '🗄️' },
+  { name: '手作り', slug: 'handmade', emoji: '🧵' },
+  { name: 'くらし', slug: 'life', emoji: '🌿' },
+  { name: '旅行', slug: 'travel', emoji: '✈️' },
+];
+---
+
+<aside class="sidebar">
+
+  <!-- プロフィール -->
+  <div class="sidebar-card">
+    <h3 class="sidebar-card__title">✦ プロフィール</h3>
+    <div class="profile">
+      <div class="profile__avatar-wrap">
+        <img
+          src="https://picsum.photos/seed/himawari-profile/200/200"
+          alt="プロフィール写真"
+          class="profile__avatar-img"
+          width="90"
+          height="90"
+        />
+      </div>
+      <p class="profile__name">ひまわり</p>
+      <p class="profile__bio">
+        50代だからこそ。<br />
+        暮らしを整える工夫と、<br />
+        心がときめく日常を綴ります。
+      </p>
+      <div class="profile__sns">
+        <a href="#" class="sns-btn sns-btn--ig">📷 Instagram</a>
+        <a href="#" class="sns-btn sns-btn--x">𝕏 X（Twitter）</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 楽天ROOM -->
+  <div class="sidebar-card sidebar-card--room">
+    <h3 class="sidebar-card__title">✦ 楽天ROOM</h3>
+    <p class="sidebar-room__intro">
+      使ってよかった商品を<br />
+      楽天ROOMで紹介しています。
+    </p>
+    <a href="https://room.rakuten.co.jp/room_fa8b7849f1/items" target="_blank" class="room-follow-btn">
+      🛁 楽天ROOMをフォロー
+    </a>
+  </div>
+
+  <!-- ブログランキング -->
+  <div class="sidebar-card sidebar-card--ranking">
+    <h3 class="sidebar-card__title">✦ ブログランキング</h3>
+    <div class="ranking-list">
+      <a href="#" class="ranking-btn">
+        <span class="ranking-btn__label">にほんブログ村</span>
+        <span class="ranking-btn__sub">ライフスタイル</span>
+      </a>
+      <a href="#" class="ranking-btn ranking-btn--pink">
+        <span class="ranking-btn__label">人気ブログランキング</span>
+        <span class="ranking-btn__sub">主婦日記</span>
+      </a>
+    </div>
+    <p class="ranking-note">🌻 応援クリックが励みになります！</p>
+  </div>
+
+  <!-- 記事検索 -->
+  <div class="sidebar-card">
+    <h3 class="sidebar-card__title">✦ 記事を検索</h3>
+    <div class="search-box">
+      <input type="text" placeholder="キーワードを入力…" class="search-input" />
+      <button class="search-btn">検索</button>
+    </div>
+  </div>
+
+  <!-- カテゴリ -->
+  <div class="sidebar-card">
+    <h3 class="sidebar-card__title">✦ カテゴリ</h3>
+    <ul class="category-list">
+      {categories.map(cat => (
+        <li class="category-item">
+          <a href={`/category/${cat.slug}`} class="category-link">
+            <span class="category-link__emoji">{cat.emoji}</span>
+            <span class="category-link__name">{cat.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- 人気記事 -->
+  <div class="sidebar-card">
+    <h3 class="sidebar-card__title">✦ 人気記事</h3>
+    <ul class="popular-list">
+      {popularPosts.map((post, i) => {
+        const slug = post.id.replace(/\.md$/, '');
+        return (
+          <li class="popular-item">
+            <span class="popular-item__num">{i + 1}</span>
+            <div class="popular-item__content">
+              {post.data.heroImage && (
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  class="popular-item__img"
+                  width="60"
+                  height="60"
+                />
+              )}
+              <a href={`/blog/${slug}`} class="popular-item__title">{post.data.title}</a>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+
+  <!-- メッセージ -->
+  <div class="sidebar-card sidebar-card--message">
+    <p>🌸 読んでくれてありがとう 🌸</p>
+    <p>また遊びに来てね♪</p>
+  </div>
+
+</aside>

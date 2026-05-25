@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+export async function getStaticPaths() {
+  const categories = [
+    { name: 'インテリア', slug: 'interior' },
+    { name: '収納・片付け', slug: 'storage' },
+    { name: '手作り', slug: 'handmade' },
+    { name: 'くらし', slug: 'life' },
+    { name: '旅行', slug: 'travel' },
+    { name: 'ブログ運営', slug: 'blog' },
+    { name: '食品・お取り寄せ', slug: 'food' },
+    { name: '掃除', slug: 'cleaning' },
+    { name: '50代からの楽しみ', slug: 'joy50s' },
+    { name: '美容', slug: 'beauty' },
+    { name: 'お金・節約', slug: 'money' },
+    { name: 'その他', slug: 'other' },
+  ];
+
+  const categoryPaths = categories.map(cat => ({
+    params: { category: cat.slug },
+    props: { categoryName: cat.name }
+  }));
+  return categoryPaths;
+}
+
+const CATEGORY_MAP = {
+  'interior': 'インテリア',
+  'storage': '収納・片付け',
+  'handmade': '手作り',
+  'life': 'くらし',
+  'travel': '旅行',
+  'blog': 'ブログ運営',
+  'food': '食品・お取り寄せ',
+  'cleaning': '掃除',
+  'joy50s': '50代からの楽しみ',
+  'beauty': '美容',
+  'money': 'お金・節約',
+  'other': 'その他',
+};
+
+const { category } = Astro.params;
+const { categoryName } = Astro.props;
+
+const allPosts = await getCollection('blog');
+const categoryPosts = allPosts
+  .filter(post => {
+    return post.data.category === CATEGORY_MAP[category];
+  })
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout title={`${categoryName} | ひまわりブログ`} description={`${categoryName}の記事一覧`}>
+  <div class="page-grid">
+
+    <main class="main-content">
+      <div class="category-header">
+        <h2 class="category-header__title">{categoryName}</h2>
+        <p class="category-header__count">{categoryPosts.length}件の記事</p>
+      </div>
+
+      {categoryPosts.length > 0 ? (
+        <ul class="post-list">
+          {categoryPosts.map((post) => {
+            const slug = post.id.replace(/\.md$/, '');
+            const dateStr = post.data.publishDate.toLocaleDateString('ja-JP', {
+              year: 'numeric', month: 'long', day: 'numeric',
+            });
+            return (
+              <li class="post-card">
+                <a href={`/blog/${slug}`} class="post-card__image-wrap">
+                  {post.data.heroImage ? (
+                    <img
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      class="post-card__image"
+                      width="800"
+                      height="450"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="post-card__image post-card__image--placeholder">
+                      🌻
+                    </div>
+                  )}
+                </a>
+                <div class="post-card__body">
+                  {post.data.category && (
+                    <span class="post-card__category">{post.data.category}</span>
+                  )}
+                  <h2 class="post-card__title">
+                    <a href={`/blog/${slug}`}>{post.data.title}</a>
+                  </h2>
+                  <p class="post-card__desc">{post.data.description}</p>
+                  <div class="post-card__footer">
+                    <time class="post-card__date">{dateStr}</time>
+                    <a href={`/blog/${slug}`} class="post-card__readmore">続きを読む →</a>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <div class="empty-state">
+          <p>このカテゴリーにはまだ記事がありません。</p>
+          <a href="/" class="empty-state__link">トップページへ</a>
+        </div>
+      )}
+    </main>
+
+    <Sidebar />
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="プライバシーポリシー | ひまわりブログ" description="ひまわりブログのプライバシーポリシー">
+  <div style="max-width: 720px; margin: 0 auto;">
+    <article class="prose-page">
+      <h1>プライバシーポリシー</h1>
+      <p class="last-updated">最終更新日：2026年5月25日</p>
+
+      <h2>1. はじめに</h2>
+      <p>
+        ひまわりブログ（以下「本サイト」）は、ユーザーの個人情報の保護を最優先に考えています。このプライバシーポリシーは、本サイトがどのように個人情報を収集、使用、保護しているかについて説明しています。
+      </p>
+
+      <h2>2. 個人情報の収集</h2>
+      <p>本サイトは、以下の場合に個人情報を収集する場合があります：</p>
+      <ul>
+        <li>お問い合わせフォームを通じて情報を提供された場合</li>
+        <li>メールマガジンの登録時</li>
+        <li>SNSを通じたご連絡時</li>
+      </ul>
+
+      <h2>3. 個人情報の使用</h2>
+      <p>収集した個人情報は、以下の目的で使用されます：</p>
+      <ul>
+        <li>お問い合わせへの対応</li>
+        <li>メールマガジンの配信（登録された場合）</li>
+        <li>サービスの改善</li>
+        <li>法律上の義務を果たすため</li>
+      </ul>
+      <p>個人情報を第三者に提供することはありません。ただし、法律により提供を要求される場合を除きます。</p>
+
+      <h2>4. クッキーの使用</h2>
+      <p>
+        本サイトは、ユーザー体験の向上のためにクッキーを使用する場合があります。クッキーは、ブラウザの設定で無効にすることができます。
+      </p>
+
+      <h2>5. アクセス解析</h2>
+      <p>
+        本サイトは、Google Analyticsを使用してアクセス解析を行っています。このサービスは、クッキーを使用してユーザーのアクセスパターンを分析します。
+      </p>
+      <p>
+        Google Analyticsの詳細については、<a href="https://policies.google.com/privacy" target="_blank">Googleのプライバシーポリシー</a>をご覧ください。
+      </p>
+
+      <h2>6. 外部リンク</h2>
+      <p>
+        本サイトには、楽天などの外部サイトへのアフィリエイトリンクが含まれています。これらのリンク先のプライバシーポリシーについては、各サイトの規定に従います。
+      </p>
+
+      <h2>7. セキュリティ</h2>
+      <p>
+        本サイトは、個人情報を保護するために適切なセキュリティ対策を講じています。ただし、インターネット上の通信の完全な安全を保証することはできません。
+      </p>
+
+      <h2>8. 個人情報の保護に関するお問い合わせ</h2>
+      <p>
+        個人情報の保護に関するご質問やご不明な点がある場合は、<a href="/contact">お問い合わせフォーム</a>からお気軽にご連絡ください。
+      </p>
+
+      <h2>9. プライバシーポリシーの変更</h2>
+      <p>
+        本プライバシーポリシーは、予告なく変更される場合があります。変更があった場合は、このページに最新版を掲載します。
+      </p>
+
+      <hr style="margin: 2rem 0; border: none; border-top: 1px solid #ddd;" />
+      <p style="text-align: center; color: var(--color-text-sub); font-size: 0.9rem; margin-top: 2rem;">
+        © 2026 ひまわりブログ. All rights reserved.
+      </p>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .prose-page {
+    padding: 3rem 1.5rem;
+  }
+
+  .prose-page h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-dark);
+  }
+
+  .last-updated {
+    color: var(--color-text-sub);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .prose-page h2 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+  }
+
+  .prose-page p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+  }
+
+  .prose-page ul {
+    margin: 1rem 0;
+    margin-left: 1.5rem;
+    color: var(--color-text-main);
+    line-height: 1.8;
+  }
+
+  .prose-page li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-page a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-primary);
+  }
+
+  .prose-page a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .prose-page {
+      padding: 2rem 1rem;
+    }
+
+    .prose-page h1 {
+      font-size: 1.5rem;
+    }
+
+    .prose-page h2 {
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+    }
+  }
+</style>

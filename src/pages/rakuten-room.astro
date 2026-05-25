@@ -1,0 +1,449 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const posts = await getCollection('blog');
+const postsWithAffiliates = posts
+  .filter(post => post.data.affiliate?.enabled && post.data.affiliate?.products)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout title="楽天ROOM | ひまわりブログ" description="ひまわりブログが使ってよかった商品の楽天ROOM紹介">
+  <div class="page-grid">
+    <main class="main-content">
+      <div class="rakuten-room-page">
+        <h1 class="rakuten-room-page__title">楽天ROOM</h1>
+        <p class="rakuten-room-page__intro">
+          日々のくらしの中で「これいい！」って思った商品を、楽天ROOMで紹介しています。<br />
+          季節ごと、テーマごとに、本当に使ってよかったものばかり。<br />
+          ぜひ、あなたの「好き」を見つけてください。
+        </p>
+
+        <div class="room-cta">
+          <a href="https://room.rakuten.co.jp/room_fa8b7849f1/items" target="_blank" class="room-cta__btn">
+            楽天ROOM フルページを見る →
+          </a>
+          <p class="room-cta__note">楽天のアカウントでフォローもお待ちしています♪</p>
+        </div>
+
+        <section class="room-categories">
+          <h2 class="room-categories__title">カテゴリー別商品紹介</h2>
+          <div class="category-cards">
+            <div class="category-card">
+              <div class="category-card__icon">🏠</div>
+              <h3 class="category-card__title">インテリア・雑貨</h3>
+              <p class="category-card__desc">部屋を彩る素敵なアイテム</p>
+            </div>
+            <div class="category-card">
+              <div class="category-card__icon">🗄️</div>
+              <h3 class="category-card__title">収納・整理用品</h3>
+              <p class="category-card__desc">生活を整える工夫</p>
+            </div>
+            <div class="category-card">
+              <div class="category-card__icon">🍵</div>
+              <h3 class="category-card__title">食品・飲み物</h3>
+              <p class="category-card__desc">季節の味わい</p>
+            </div>
+            <div class="category-card">
+              <div class="category-card__icon">🛁</div>
+              <h3 class="category-card__title">美容・健康</h3>
+              <p class="category-card__desc">自分のケアを大事に</p>
+            </div>
+            <div class="category-card">
+              <div class="category-card__icon">🧵</div>
+              <h3 class="category-card__title">手作り・DIY</h3>
+              <p class="category-card__desc">クリエイティブな時間</p>
+            </div>
+            <div class="category-card">
+              <div class="category-card__icon">📚</div>
+              <h3 class="category-card__title">本・映画</h3>
+              <p class="category-card__desc">心が豊かになる作品</p>
+            </div>
+          </div>
+        </section>
+
+        {postsWithAffiliates.length > 0 && (
+          <section class="featured-articles">
+            <h2 class="featured-articles__title">最近紹介した商品</h2>
+            <div class="featured-grid">
+              {postsWithAffiliates.slice(0, 6).map((post) => {
+                const slug = post.id.replace(/\.md$/, '');
+                const products = post.data.affiliate?.products || [];
+                return (
+                  <div class="featured-item">
+                    <a href={`/blog/${slug}`} class="featured-item__image-link">
+                      {post.data.heroImage && (
+                        <img
+                          src={post.data.heroImage}
+                          alt={post.data.title}
+                          class="featured-item__image"
+                          width="300"
+                          height="200"
+                          loading="lazy"
+                        />
+                      )}
+                    </a>
+                    <div class="featured-item__content">
+                      <h3 class="featured-item__title">
+                        <a href={`/blog/${slug}`}>{post.data.title}</a>
+                      </h3>
+                      <p class="featured-item__count">{products.length}個の商品を紹介</p>
+                      <ul class="featured-item__products">
+                        {products.map(product => (
+                          <li class="featured-product-item">
+                            <span class="featured-product-item__name">{product.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <a href={`/blog/${slug}`} class="featured-item__link">記事を読む →</a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        <section class="room-tips">
+          <h2 class="room-tips__title">楽天ROOMの活用法</h2>
+          <div class="tips-list">
+            <div class="tip-item">
+              <div class="tip-item__number">1</div>
+              <h3 class="tip-item__title">フォローで最新情報をゲット</h3>
+              <p class="tip-item__desc">新しい商品が追加されたら、フォロワー様に通知が届きます。</p>
+            </div>
+            <div class="tip-item">
+              <div class="tip-item__number">2</div>
+              <h3 class="tip-item__title">季節ごとの提案をチェック</h3>
+              <p class="tip-item__desc">春夏秋冬、季節にぴったりなアイテムを紹介しています。</p>
+            </div>
+            <div class="tip-item">
+              <div class="tip-item__number">3</div>
+              <h3 class="tip-item__title">セールやポイント還元をお見逃しなく</h3>
+              <p class="tip-item__desc">楽天ROOMでチェックした商品は、楽天で購入できます。</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="room-footer">
+          <p>「本当に好きなもの」を、「本当に必要な人」に。<br />それが、ひまわりブログのアフィリエイト活動です。</p>
+          <a href="https://room.rakuten.co.jp/room_fa8b7849f1/items" target="_blank" class="room-footer__btn">
+            楽天ROOMをフォローする
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <Sidebar />
+  </div>
+</BaseLayout>
+
+<style>
+  .rakuten-room-page {
+    padding-bottom: 2rem;
+  }
+
+  .rakuten-room-page__title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .rakuten-room-page__intro {
+    text-align: center;
+    color: var(--color-text-main);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .room-cta {
+    background: linear-gradient(135deg, rgba(244, 196, 48, 0.1) 0%, rgba(232, 168, 154, 0.1) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .room-cta__btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .room-cta__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 196, 48, 0.3);
+  }
+
+  .room-cta__note {
+    color: var(--color-text-sub);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .room-categories {
+    margin-bottom: 3rem;
+  }
+
+  .room-categories__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .category-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .category-card {
+    background: linear-gradient(135deg, rgba(244, 196, 48, 0.08) 0%, rgba(184, 220, 200, 0.08) 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(244, 196, 48, 0.2);
+  }
+
+  .category-card__icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-card__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .category-card__desc {
+    font-size: 0.8rem;
+    color: var(--color-text-sub);
+  }
+
+  .featured-articles {
+    margin-bottom: 3rem;
+  }
+
+  .featured-articles__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .featured-item {
+    background: var(--color-bg-light);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .featured-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .featured-item__image-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    height: 140px;
+  }
+
+  .featured-item__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .featured-item:hover .featured-item__image {
+    transform: scale(1.05);
+  }
+
+  .featured-item__content {
+    padding: 1rem;
+  }
+
+  .featured-item__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .featured-item__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .featured-item__title a:hover {
+    color: var(--color-primary);
+  }
+
+  .featured-item__count {
+    font-size: 0.85rem;
+    color: var(--color-text-sub);
+    margin-bottom: 0.5rem;
+  }
+
+  .featured-item__products {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .featured-product-item {
+    color: var(--color-text-sub);
+    margin-bottom: 0.3rem;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .featured-product-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+  }
+
+  .featured-item__link {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .featured-item__link:hover {
+    text-decoration: underline;
+  }
+
+  .room-tips {
+    margin-bottom: 3rem;
+  }
+
+  .room-tips__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .tips-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tip-item {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .tip-item__number {
+    position: absolute;
+    top: -10px;
+    left: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    opacity: 0.2;
+  }
+
+  .tip-item__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tip-item__desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .room-footer {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(244, 196, 48, 0.1) 0%, rgba(184, 220, 200, 0.1) 100%);
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+  }
+
+  .room-footer p {
+    color: var(--color-text-main);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .room-footer__btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .room-footer__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 196, 48, 0.3);
+  }
+
+  @media (max-width: 640px) {
+    .rakuten-room-page__title {
+      font-size: 1.5rem;
+    }
+
+    .category-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tips-list {
+      grid-template-columns: 1fr;
+    }
+
+    .room-footer {
+      padding: 1.5rem;
+    }
+  }
+</style>

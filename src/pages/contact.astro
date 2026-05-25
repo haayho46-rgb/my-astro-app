@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="お問い合わせ | ひまわりブログ" description="ひまわりブログへのお問い合わせフォーム">
+  <div style="max-width: 600px; margin: 0 auto;">
+    <div class="contact-page">
+      <h1 class="contact-page__title">お問い合わせ</h1>
+      <p class="contact-page__intro">
+        ご質問、ご感想、お仕事のご依頼など、お気軽にお問い合わせください。<br />
+        返信はできるだけ早くさせていただきます。
+      </p>
+
+      <form class="contact-form" action="https://formspree.io/f/mxxxooxx" method="POST">
+        <div class="form-group">
+          <label for="name" class="form-label">お名前 <span class="form-required">*</span></label>
+          <input type="text" id="name" name="name" required class="form-input" placeholder="山田花子" />
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">メールアドレス <span class="form-required">*</span></label>
+          <input type="email" id="email" name="email" required class="form-input" placeholder="your-email@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="subject" class="form-label">件名 <span class="form-required">*</span></label>
+          <input type="text" id="subject" name="subject" required class="form-input" placeholder="お問い合わせの件名" />
+        </div>
+
+        <div class="form-group">
+          <label for="type" class="form-label">お問い合わせの種類</label>
+          <select id="type" name="type" class="form-input">
+            <option value="">選択してください</option>
+            <option value="感想・コメント">感想・コメント</option>
+            <option value="ご質問">ご質問</option>
+            <option value="お仕事のご依頼">お仕事のご依頼</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">メッセージ <span class="form-required">*</span></label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            class="form-textarea"
+            placeholder="ご質問やご感想をお聞かせください。"
+            rows="8"
+          ></textarea>
+        </div>
+
+        <div class="form-note">
+          <input type="checkbox" id="agreement" name="agreement" required class="form-checkbox" />
+          <label for="agreement" class="form-agreement-label">
+            <a href="/privacy" target="_blank">プライバシーポリシー</a>に同意します
+          </label>
+        </div>
+
+        <button type="submit" class="form-submit">送信する</button>
+      </form>
+
+      <div class="contact-alt">
+        <h2 class="contact-alt__title">その他のご連絡方法</h2>
+        <p>フォームでのお問い合わせが難しい場合は、SNSのDMでもお気軽にお問い合わせください。</p>
+        <div class="contact-alt__links">
+          <a href="#" class="contact-link">📷 Instagram</a>
+          <a href="#" class="contact-link">𝕏 X（Twitter）</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    margin: 3rem 0;
+  }
+
+  .contact-page__title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--color-text-dark);
+  }
+
+  .contact-page__intro {
+    text-align: center;
+    color: var(--color-text-main);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .contact-form {
+    background-color: var(--color-bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label {
+    display: block;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .form-required {
+    color: var(--color-accent);
+    margin-left: 0.3rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    background-color: white;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+
+  .form-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    padding: 0.8rem;
+    background-color: white;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+
+  .form-checkbox {
+    margin-top: 0.3rem;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+  }
+
+  .form-agreement-label {
+    cursor: pointer;
+    color: var(--color-text-main);
+  }
+
+  .form-agreement-label a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .form-agreement-label a:hover {
+    text-decoration: underline;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 196, 48, 0.3);
+  }
+
+  .contact-alt {
+    text-align: center;
+  }
+
+  .contact-alt__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-alt__links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .contact-link {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-link:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    .contact-page__title {
+      font-size: 1.5rem;
+    }
+
+    .contact-form {
+      padding: 1.5rem;
+    }
+
+    .form-submit {
+      padding: 0.8rem;
+      font-size: 0.95rem;
+    }
+  }
+</style>

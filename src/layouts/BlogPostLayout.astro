@@ -1,0 +1,88 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  category?: string;
+  tags?: string[];
+  heroImage?: string;
+  affiliate?: {
+    enabled: boolean;
+    products?: Array<{
+      name: string;
+      points: string[];
+      target: string;
+      rakutenUrl: string;
+      roomUrl: string;
+    }>;
+  };
+}
+
+const { title, description, publishDate, category, tags = [], heroImage, affiliate } = Astro.props;
+
+const dateStr = publishDate.toLocaleDateString('ja-JP', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+---
+
+<BaseLayout title={`${title} | ひまわりブログ`} description={description}>
+  <div style="max-width: 720px;">
+    <article>
+      <header class="post-header">
+        <a href="/" class="post-header__back">← 記事一覧へ</a>
+        {heroImage && (
+          <img src={heroImage} alt={title} class="post-header__hero" width="800" height="320" />
+        )}
+        {category && <span class="post-header__category">{category}</span>}
+        <p class="post-header__date">{dateStr}</p>
+        <h1 class="post-header__title">{title}</h1>
+        <p class="post-header__desc">{description}</p>
+        {tags.length > 0 && (
+          <div class="tags">
+            {tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        )}
+      </header>
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+
+    {affiliate?.enabled && affiliate?.products && affiliate.products.length > 0 && (
+      <section class="product-showcase">
+        <h2 class="product-showcase__title">この記事で紹介した商品</h2>
+        <div class="product-showcase__grid">
+          {affiliate.products.map(product => (
+            <div class="product-item">
+              <div class="product-item__header">
+                <h3 class="product-item__name">{product.name}</h3>
+                <p class="product-item__target">{product.target}</p>
+              </div>
+              <ul class="product-item__points">
+                {product.points.map(point => (
+                  <li class="product-item__point">
+                    <span class="check-mark">✓</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <div class="product-item__actions">
+                <a href={product.rakutenUrl} target="_blank" rel="noopener noreferrer" class="product-item__btn product-item__btn--rakuten">
+                  楽天で見る
+                </a>
+                <a href={product.roomUrl} target="_blank" rel="noopener noreferrer" class="product-item__btn product-item__btn--room">
+                  楽天ROOMを見る
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p class="product-showcase__notice">
+          ※ 本記事のリンクはアフィリエイトリンクです。購入いただくことで、ブログ運営をサポートしていただけます。
+        </p>
+      </section>
+    )}
+  </div>
+</BaseLayout>
