@@ -27,15 +27,15 @@ const posts = allPosts.slice(startIndex, startIndex + postsPerPage);
             year: 'numeric', month: 'long', day: 'numeric',
           });
           return (
-            <li class="post-card post-card--horizontal">
-              <a href={`/blog/${slug}`} class="post-card__image-wrap post-card__image-wrap--square">
+            <li class="post-card">
+              <a href={`/blog/${slug}`} class="post-card__image-wrap">
                 {post.data.heroImage ? (
                   <img
                     src={post.data.heroImage}
                     alt={post.data.title}
                     class="post-card__image"
-                    width="400"
-                    height="400"
+                    width="800"
+                    height="450"
                     loading="lazy"
                   />
                 ) : (
@@ -53,7 +53,9 @@ const posts = allPosts.slice(startIndex, startIndex + postsPerPage);
                 </h2>
                 <time class="post-card__date">{dateStr}</time>
                 <p class="post-card__desc">{post.data.description}</p>
-                <a href={`/blog/${slug}`} class="post-card__readmore">続きを読む →</a>
+                <div class="post-card__footer">
+                  <a href={`/blog/${slug}`} class="post-card__readmore">続きを読む →</a>
+                </div>
               </div>
             </li>
           );

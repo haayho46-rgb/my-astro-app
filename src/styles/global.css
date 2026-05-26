@@ -288,12 +288,6 @@ img {
   gap: 2rem;
 }
 
-.post-list--grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
-}
-
 .post-card {
   background: linear-gradient(135deg, var(--color-surface) 0%, rgba(245, 240, 232, 0.3) 100%);
   border: 2px solid var(--color-border);
@@ -309,34 +303,12 @@ img {
   border-color: var(--color-yellow);
 }
 
-/* グリッド用の横配置カード */
-.post-card--horizontal {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-
-.post-card--horizontal .post-card__image-wrap {
-  width: 45%;
-  flex-shrink: 0;
-}
-
-.post-card--horizontal .post-card__body {
-  width: 55%;
-  display: flex;
-  flex-direction: column;
-}
-
 /* Card Image */
 .post-card__image-wrap {
   display: block;
   overflow: hidden;
   background: linear-gradient(135deg, var(--color-yellow-light) 0%, var(--color-beige-light) 100%);
   aspect-ratio: 16 / 9;
-}
-
-.post-card__image-wrap--square {
-  aspect-ratio: 1 / 1;
 }
 
 .post-card__image {
@@ -361,11 +333,6 @@ img {
 /* Card Body */
 .post-card__body {
   padding: 1.6rem 1.8rem;
-}
-
-.post-card--horizontal .post-card__body {
-  padding: 1.4rem 1.6rem;
-  justify-content: space-between;
 }
 
 .post-card__category {
@@ -404,27 +371,11 @@ img {
   text-shadow: 0 2px 8px rgba(212, 165, 23, 0.15);
 }
 
-.post-card--horizontal .post-card__title {
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
 .post-card__desc {
   font-size: 0.95rem;
   color: var(--color-text-muted);
   line-height: 1.75;
   margin-bottom: 1.3rem;
-}
-
-.post-card--horizontal .post-card__desc {
-  font-size: 0.88rem;
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .post-card__footer {
@@ -440,15 +391,6 @@ img {
   font-size: 0.83rem;
   color: var(--color-text-light);
   white-space: nowrap;
-  margin: 0.5rem 0;
-}
-
-.post-card--horizontal .post-card__footer {
-  border-top: none;
-  padding-top: 0;
-  margin-top: auto;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .post-card__readmore {
@@ -1347,27 +1289,6 @@ img {
   .post-header__title {
     font-size: 1.55rem;
   }
-
-  /* グリッドレイアウトをタブレット対応（1列に） */
-  .post-list--grid {
-    grid-template-columns: 1fr;
-  }
-
-  .post-card--horizontal {
-    flex-direction: column;
-  }
-
-  .post-card--horizontal .post-card__image-wrap {
-    width: 100%;
-  }
-
-  .post-card--horizontal .post-card__body {
-    width: 100%;
-  }
-
-  .post-card__image-wrap--square {
-    aspect-ratio: 16 / 9;
-  }
 }
 
 
@@ -1478,18 +1399,9 @@ img {
     gap: 0.8rem;
   }
 
-  .post-card--horizontal .post-card__footer {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
   .post-card__readmore {
     width: 100%;
     text-align: center;
-  }
-
-  .post-card--horizontal .post-card__readmore {
-    width: auto;
   }
 
   .post-header__title {
