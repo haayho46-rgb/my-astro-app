@@ -5,7 +5,7 @@ description: "年を重ねるごとに、肌は正直です。だからこそ、
 publishDate: 2026-05-16
 category: "美容と健康"
 tags: ["スキンケア", "美容", "年齢肌"]
-heroImage: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1596617321929-1e09c2ef3c10?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: true

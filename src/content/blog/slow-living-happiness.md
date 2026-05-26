@@ -2,10 +2,10 @@
 
 title: "『ゆっくり時間』を作ること。人生後半の幸福度が変わる"
 description: "スローライフの本当の意味。急ぐことをやめて、その瞬間を味わうことで見えてくるもの。"
-publishDate: "2026-06-08"
+publishDate: "2026-05-08"
 category: "life"
 tags: ["スローライフ", "幸福度", "時間", "心の余裕"]
-heroImage: "https://images.unsplash.com/photo-1544716278-ca5e3af3abd8?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

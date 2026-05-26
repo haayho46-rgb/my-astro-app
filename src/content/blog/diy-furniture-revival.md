@@ -2,10 +2,10 @@
 
 title: "初心者さんでも大丈夫。簡単DIYで、古い家具が生まれ変わった"
 description: "電動ドライバーなんて持ってなくても大丈夫。身近な材料で、古い家具を新しく蘇らせるDIYの魅力。"
-publishDate: "2026-06-05"
+publishDate: "2026-05-05"
 category: "handmade"
 tags: ["DIY", "手作り", "家具リメイク", "ウッドペイント"]
-heroImage: "https://images.unsplash.com/photo-1565193566173-7cde92f129fb?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

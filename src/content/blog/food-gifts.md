@@ -5,7 +5,7 @@ description: "おいしいものって、人を笑顔にする。だから、選
 publishDate: 2026-05-08
 category: "食品・お取り寄せ"
 tags: ["食品", "お取り寄せ", "季節"]
-heroImage: "https://images.unsplash.com/photo-1555939594-58d7cb561241?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1580959375944-abd7e8e1b3ca?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: true

@@ -5,7 +5,7 @@ description: "完璧を目指さない。でも、定期的にリセットする
 publishDate: 2026-05-10
 category: "掃除"
 tags: ["掃除", "ルーティン", "暮らし"]
-heroImage: "https://images.unsplash.com/photo-1584568694244-14fbbc50bd94?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1629308787650-e2eb2f5d6145?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: true

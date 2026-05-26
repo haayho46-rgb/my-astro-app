@@ -5,7 +5,7 @@ description: "日常をちょっと楽にしてくれるもの。そういうも
 publishDate: 2026-05-26
 category: "楽天購入品"
 tags: ["楽天購入品", "買ってよかった", "日用品"]
-heroImage: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1556910103-2b02b30fcf8b?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

@@ -2,10 +2,10 @@
 
 title: "キッチンの引き出し整理。毎日の調理がラクになる工夫"
 description: "調理時間の短縮と心の余裕。キッチン引き出しの整理で、毎日がストレスフリーに。"
-publishDate: "2026-06-04"
+publishDate: "2026-05-04"
 category: "storage"
 tags: ["キッチン", "引き出し整理", "調理効率", "収納"]
-heroImage: "https://images.unsplash.com/photo-1584568694244-14fbbc50bd94?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

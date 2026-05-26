@@ -2,10 +2,10 @@
 
 title: "朝の15分ルーティン。心地よい朝で、1日が変わる"
 description: "毎朝の小さな習慣が、その日一日の質を変える。50代だからこそ実感する、朝時間の大切さ。"
-publishDate: "2026-06-07"
+publishDate: "2026-05-07"
 category: "life"
 tags: ["朝ルーティン", "習慣", "時間管理", "自分ケア"]
-heroImage: "https://images.unsplash.com/photo-1544512284-14087b0a7cbd?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1513391369175-2a8a66e7a629?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

@@ -5,7 +5,7 @@ description: "親子の関係が変わる。それもまた、幸せなこと。
 publishDate: 2026-05-18
 category: "家族のこと"
 tags: ["家族", "人間関係", "50代"]
-heroImage: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: false

@@ -5,7 +5,7 @@ description: "冷え性の50代こそ、毎朝の生姜が大事。温かい朝�
 publishDate: 2026-05-24
 category: "食品・お取り寄せ"
 tags: ["健康", "食品", "冷え対策"]
-heroImage: "https://images.unsplash.com/photo-1597318957632-ecb5d48c6c7f?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1599599810694-b5ac4dd0c8d7?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: true

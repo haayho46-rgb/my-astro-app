@@ -5,7 +5,7 @@ description: "毎日の暮らしを言葉にする。そこから、誰かとつ
 publishDate: 2026-05-06
 category: "ブログ運営"
 tags: ["ブログ", "発信", "共感"]
-heroImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: false

@@ -5,7 +5,7 @@ description: "季節を感じる。そのために庭を始めました。今は
 publishDate: 2026-05-20
 category: "庭と花"
 tags: ["ガーデニング", "季節", "暮らしの彩り"]
-heroImage: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1597848212624-753a6d4c5f1a?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: false

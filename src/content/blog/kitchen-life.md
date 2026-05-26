@@ -5,7 +5,7 @@ description: "毎日使う台所だからこそ、ほんの少し整えるだけ
 publishDate: 2026-05-28
 category: "キッチン用品"
 tags: ["収納", "台所", "暮らし", "楽天購入品"]
-heroImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1551632786-189cfcc72e1c?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

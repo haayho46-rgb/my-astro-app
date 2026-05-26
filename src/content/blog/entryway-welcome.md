@@ -2,10 +2,10 @@
 
 title: "玄関をおもてなし空間に。季節を感じる飾り方で、毎日が特別になる"
 description: "50代だからこそできる、上品な玄関づくり。季節の花やアート、小物を使った飾り方のコツを紹介します。"
-publishDate: "2026-06-02"
+publishDate: "2026-05-02"
 category: "interior"
 tags: ["インテリア", "玄関", "季節", "おもてなし"]
-heroImage: "https://images.unsplash.com/photo-1572533148918-8944a0db4ff6?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1556229287-8147a5d12b6e?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

@@ -2,10 +2,10 @@
 
 title: "人生後半は『引き算の美学』。ものを減らして、心がスッキリ"
 description: "断捨離を通じて見つけた本当に大事なもの。50代だからこそできるミニマルな生活のすすめ。"
-publishDate: "2026-06-03"
+publishDate: "2026-05-03"
 category: "storage"
 tags: ["断捨離", "ミニマリズム", "片付け", "人生後半"]
-heroImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

@@ -2,10 +2,10 @@
 
 title: "一人旅で見つけた、新しい自分。50代からの『ひとり時間』の大切さ"
 description: "誰かと一緒ではなく、自分のペースで。一人旅が教えてくれた、本当の幸福とは。"
-publishDate: "2026-06-10"
+publishDate: "2026-05-10"
 category: "travel"
 tags: ["一人旅", "自分発見", "50代", "ひとり時間"]
-heroImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

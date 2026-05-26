@@ -2,10 +2,10 @@
 
 title: "50代だからこそ行きたい。日本の古い町並みを歩く。飛騨高山編"
 description: "歴史を感じながら、ゆっくり歩く。古い町で発見する、新しい自分。"
-publishDate: "2026-06-09"
+publishDate: "2026-05-09"
 category: "travel"
 tags: ["旅行", "日本の町", "歴史", "50代旅"]
-heroImage: "https://images.unsplash.com/photo-1540959375944-7049f642e9f1?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1536431311894-8257ee584828?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

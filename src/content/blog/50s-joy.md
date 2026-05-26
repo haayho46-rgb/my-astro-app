@@ -5,7 +5,7 @@ description: "若い時に見落としていた喜び。今だから感じられ
 publishDate: 2026-05-12
 category: "50代からの楽しみ"
 tags: ["人生", "50代", "心の豊かさ"]
-heroImage: "https://images.unsplash.com/photo-1560697529-d534daba187f?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: false

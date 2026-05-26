@@ -2,10 +2,10 @@
 
 title: "季節の花を活ける。フラワーアレンジメントで、玄関が主役に"
 description: "素人でも上品に見えるフラワーアレンジメント。季節の花を活ける喜びと、その技法を紹介します。"
-publishDate: "2026-06-06"
+publishDate: "2026-05-06"
 category: "handmade"
 tags: ["フラワーアレンジメント", "生け花", "季節", "玄関"]
-heroImage: "https://images.unsplash.com/photo-1546514714319-c06605eac5bf?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1485239acdf26a51763cf1906c35d3c8?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

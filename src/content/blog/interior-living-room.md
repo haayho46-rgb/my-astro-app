@@ -2,10 +2,10 @@
 
 title: "50代だからこそ似合う、白×グリーンの上品なリビング。小さな変化で大きく変わる"
 description: "白と緑で作る上品で落ち着いたリビング。実際に使ってよかった家具やアイテムで、心地よい空間へ"
-publishDate: 2026-06-01
+publishDate: 2026-05-01
 category: "インテリア"
 tags: ["インテリア", "リビング", "50代"]
-heroImage: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1586023492125-27b46c719b13?w=800&h=450&fit=crop"
 featured: true
 affiliate:
   enabled: true

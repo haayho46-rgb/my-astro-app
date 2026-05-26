@@ -5,7 +5,7 @@ description: "節約って、我慢じゃない。無駄を見つけて、心地
 publishDate: 2026-05-14
 category: "節約と家計"
 tags: ["節約", "家計管理", "50代ライフ"]
-heroImage: "https://images.unsplash.com/photo-1554224311-beee415c15c9?w=800&h=450&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=450&fit=crop"
 featured: false
 affiliate:
   enabled: true
