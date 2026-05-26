@@ -1,0 +1,3 @@
+/*  /index.html  200
+# キャッシュを無効化
+/  /  200  Cache-Control: no-cache, no-store, must-revalidate, max-age=0
