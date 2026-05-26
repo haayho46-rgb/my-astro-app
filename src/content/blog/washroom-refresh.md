@@ -5,7 +5,6 @@ description: "何かを足すより、何かを引く方が難しい。でも、
 publishDate: 2026-05-22
 category: "片付け・収納"
 tags: ["片付け", "洗面所", "シンプルライフ"]
-heroImage: "https://pixabay.com/get/g8f8e7f02fb1f4e4cb49e27e2e96e383a0f0eff0ae7f5c24d9ad68d36c6_1280.jpg"
 featured: false
 affiliate:
   enabled: false
