@@ -5,7 +5,6 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 const popularPosts = posts.slice(0, 5);
-const baseUrl = import.meta.env.BASE_URL;
 const categories = [
   { name: 'インテリア', slug: 'interior', emoji: '🛋️' },
   { name: '収納・片付け', slug: 'storage', emoji: '🗄️' },
@@ -86,7 +85,7 @@ const categories = [
     <ul class="category-list">
       {categories.map(cat => (
         <li class="category-item">
-          <a href={`${baseUrl}category/${cat.slug}`} class="category-link">
+          <a href={`/category/${cat.slug}/`} class="category-link">
             <span class="category-link__emoji">{cat.emoji}</span>
             <span class="category-link__name">{cat.name}</span>
           </a>
@@ -114,7 +113,7 @@ const categories = [
                   height="60"
                 />
               )}
-              <a href={`${baseUrl}blog/${slug}`} class="popular-item__title">{post.data.title}</a>
+              <a href={`/blog/${slug}/`} class="popular-item__title">{post.data.title}</a>
             </div>
           </li>
         );
