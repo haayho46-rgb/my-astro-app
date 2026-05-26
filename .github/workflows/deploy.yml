@@ -37,9 +37,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout gh-pages
         uses: actions/checkout@v4
         with:
+          ref: gh-pages
           fetch-depth: 0
 
       - name: Download artifact
@@ -52,9 +53,15 @@ jobs:
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
-          git checkout --orphan gh-pages
-          git rm -rf .
-          cp -r dist/* .
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push -f origin gh-pages
+
+          # Remove old my-astro-app directory if it exists
+          rm -rf my-astro-app
+
+          # Create my-astro-app directory and copy dist contents
+          mkdir -p my-astro-app
+          cp -r dist/* my-astro-app/
+
+          # Add and commit
+          git add my-astro-app/
+          git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
+          git push origin gh-pages
