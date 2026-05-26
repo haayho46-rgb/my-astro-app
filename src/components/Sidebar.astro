@@ -85,7 +85,7 @@ const categories = [
     <ul class="category-list">
       {categories.map(cat => (
         <li class="category-item">
-          <a href={`/category/${cat.slug}/`} class="category-link">
+          <a href={`/category/${cat.slug}`} class="category-link">
             <span class="category-link__emoji">{cat.emoji}</span>
             <span class="category-link__name">{cat.name}</span>
           </a>
@@ -113,7 +113,7 @@ const categories = [
                   height="60"
                 />
               )}
-              <a href={`/blog/${slug}/`} class="popular-item__title">{post.data.title}</a>
+              <a href={`/blog/${slug}`} class="popular-item__title">{post.data.title}</a>
             </div>
           </li>
         );
